@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        计算机网络扫盲 · 曲英的博客 | 玉树临风美少年 - 记录技术与生活
+        关于CSS盒子模型の定位の生动理解 · 曲英的博客 | 玉树临风美少年 - 记录技术与生活
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -63,7 +63,7 @@
                 <a href="/" >走り続けてこそ人生.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">计算机网络扫盲</a>
+                <a href="#" class="post-name">关于CSS盒子模型の定位の生动理解</a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            计算机网络扫盲
+            关于CSS盒子模型の定位の生动理解
             <!-- 404 -->
             
         </h1>
@@ -102,17 +102,17 @@
             
                 <div class= post-intro-tags >
     
+        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
+    
         <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
     
         <a class="post-tag" href="javascript:void(0);" data-href = web开发科普>web开发科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 计算机网络>计算机网络</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2016/07/23</span>
+                <span class="post-intro-time">2015/12/01</span>
             </div>
         
     </div>
@@ -183,78 +183,41 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>计算机网络的源模型是ISO/OSI七层模型，它是在具体的网络协议比如TCP，HTTP之类并未制定前就成型的，是一种架构思想，换个说法即空中楼阁。</p>
-<p>日后随着模型下的每一层对应的协议均涌现了优秀的实现，将这个抽象的理想模型变为了现实，于是它便从军事科研走向了日常生活的大规模应用，成为了网络世界的基础，就是目前大名鼎鼎的TCP/IP四层模型啦~</p>
-<p>在了解这个模型前，要先熟悉以下​几个名词：<strong>服务器</strong>，<strong>IP地址</strong>，<strong>域名</strong>，<strong>MAC地址</strong>，<strong>端口</strong>。</p>
-<h2 id="服务器是啥"><a href="#服务器是啥" class="headerlink" title="服务器是啥"></a>服务器是啥</h2><p>服务器可以想象成一栋大厦，里面被划分成很多个房间（就是买服务器的时候所说的“空间”啦）</p>
-<p>一般直接买服务器的话买的是毛胚房，买空间的话则买的是精装房，服务器提供商帮忙把基础设施都配置好了。比如用于响应http请求的Apache，管理数据库的MySQL全都帮你安装好了，你直接把你建的网站传上去你买的的空间让它住下，等着别人来访问就好了​。</p>
-<p>服务器和我们自己的电脑有何不同呢？​</p>
-<p>其实是一猫一样的，只不过是台性能强劲能24小时不关机运转的电脑而已，所以买服务器要钱吶（电费，管理员的人工管理费，服务器的硬件费等等）</p>
-<p>再次使用大厦的比喻，其实就是个人电脑相当于私人住宅（默认设置是不能外人访问，并且多人访问可能崩溃），服务器则是大酒店（默认设置是谁都可以访问，并且访问人数多也不崩溃）。</p>
-<p>等等！可以把自己的渣渣电脑变成服务器吗？当然可以！装修装修就好了！私人住宅摇身一变大酒店只要998只要998！！安装一些 响应http访问请求的软件 + 支持后台程序运行的语言包就好了 ~ </p>
-<blockquote>
-<p>服务器有很多种类型，按应用协议来划分有FTP服务器，HTTP服务器等（最常见的服务器类型，用于提供浏览网站里的网页的服务）。下文讨论的服务器搭建专指网站服务器。</p>
-</blockquote>
-<p><strong>安装http响应程序</strong>：比如用windows系统的话把自带的IIS安装一下（或者下个开源的Apache），用Linux系统的话则装个Nginx啥的</p>
-<p><strong>安装支持网站后台程序运行的语言环境</strong>：PHP是世界上最好的语言！！逃。。开玩笑的辣~其实后台程序开发啥语言都可以，配置好环境，能让程序跑起来就成了~PHP目测是WordPress之类用它写的CMS带火的。。。。作为一个靠js吃饭的前端er，支持的必须是Node啊</p>
-<p>唠了这么多。。其实有个捷径，下个Wamp Server然后一路傻瓜式地安装好，你的电脑就自动配置成服务器了</p>
-<h2 id="如何访问服务器"><a href="#如何访问服务器" class="headerlink" title="如何访问服务器"></a>如何访问服务器</h2><p>酒店开好了，我们怎么找到酒店里某个放了我们网站的房间呢？专业术语：如何访问服务器某个目录下的xx.html文件</p>
-<p>这时候就是 <strong>域名</strong>、<strong>IP地址</strong>、<strong>端口号</strong> 大显身手的时候了，拿某天你想去百度总部，问了下朋友百度总部在哪来举个栗子：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">域名</th>
-<th style="text-align:center">IP地址</th>
-<th style="text-align:center">MAC地址</th>
-<th style="text-align:center">端口号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">百度总部</td>
-<td style="text-align:center">北京市海淀区上地十街10号百度大厦</td>
-<td style="text-align:center">经度39.9042° N, 纬度116.4074° E</td>
-<td style="text-align:center">13层04室</td>
-</tr>
-<tr>
-<td style="text-align:center">baidu.com</td>
-<td style="text-align:center">202.108.22.5</td>
-<td style="text-align:center">00:0A:02:0B:03:0C</td>
-<td style="text-align:center">8080</td>
-</tr>
-</tbody>
-</table>
-<p>可以看到，<strong>域名</strong> 跟 <strong>IP地址</strong> 是同一个玩意儿，只不过域名更便于人们记忆。</p>
-<p><strong>IP地址</strong> 就是服务器大厦的名字，是逻辑上的地址。</p>
-<p>至于 <strong>MAC地址</strong>，就是传说中的网卡地址啦，电脑出厂前就烙在网卡上了，用于唯一地标识电脑网卡，是物理上的地址。</p>
-<p>局域网内的主机要访问外网的主机则必须领一个IP地址。从外网进入局域网访问某台主机，则必须将目标主机的IP地址转换为它的MAC地址。</p>
-<p><strong>域名</strong> 则是服务器空间的名字（所以叫域名嘛=。=被划分好的某块区域的名字）</p>
-<p><strong>域名解析</strong> 就是把域名解析到一整栋服务器大厦的IP地址，<strong>域名绑定</strong> 则是把解析好的域名绑定到服务器里的某个房间。​</p>
-<p><strong>端口</strong> 又是啥？</p>
-<p>端口就是服务器提供各种各样服务的接口。比如一栋全能型大厦的服务器，提供所有它能提供的服务，里边有网吧，有餐馆，还有专门用来堆资料书籍和卡片的数据库（服务器也有分类的，比如专门用来放数据的数据库服务器）​，需要这些服务而去访问服务器的人数不胜数，而且各有所需，有人想吃饭，有人想上网，有人想查资料。如果服务器大厦只有大门的话那就太坑了，全都一股脑涌进去，拥挤且难以找到自己需要的那个服务，于是就有端口这货啦。</p>
-<p>公认端口有0-1023​号，比如基于TCP协议用于提供http服务的80端口（可以想象成服务器的大门），提供邮件服务的25号端口（可以想象成挂在服务器大厦墙上的信箱）……还有1024-65535号的动态端口，他们都可以由我们自定义提供哪些服务。</p>
-<p>一般80端口出于安全考虑是被封掉的，提供http服务的端口号被重定向为自定义的端口号，比如8080或者别的。（现在不是路不拾遗夜不闭户的时代了，世风日下，大家都极少把大门打开，要干啥都不走大门80端口了，而改为爬烟囱之8080端口。。）</p>
-<p>总而言之能让服务器大厦和外界通讯就是端口的​作用，管你是信箱还是烟囱还是窗户还是大门呢，他们都是端口~</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>关于web开发方面的科普，如何让你的网站接入网络世界的部分已水贴完毕，另贴一介绍网站开发技术的<a href="https://www.zhihu.com/question/22689579" target="_blank" rel="noopener">超赞科普文</a></p>
+        <p>首先要理解“文档流”这个概念。文档流实际上是一种民间说法，官方说法是常规流（normal flow）。从直观上理解正常流指的是元素按照其在HTML 中的位置顺序决定排布的过程，主要的形式是自上而下，一行接一行，每一行从左至右。</p>
+<p>我们还可以把常规流形象的比喻为马路上的车流的行驶规则。假设有些车太宽了只能够占据一行，那就是块级元素（black element）。有的车比较瘦小，可以并排行驶，那就是就是内联元素（inline element）。在这些车流中有添加了某些附加属性的超级变形金刚车型，他们的车由默认的只能陆用变成了空路两用的，也就是说可以飞起来。当然原来在地上的车辆可以选择填补或不填补起飞车辆的位置。​</p>
+<p>记住！！常规流=马路上的车的行驶规则！！</p>
+<p>接下来就讲讲下面这段在正儿八经的CSS参考手册上挖下来的原话如何胡说八道地理解吧</p>
+<p>——————————–CSS参考手册原话—————————————–</p>
+<p>static（静态定位）：<br>对象遵循常规流。此时4个定位偏移属性top，right，bottom，left不会被应用。<br>relative（相对定位）：<br>对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left这4个定位偏移属性进行偏移时不会影响常规流中的任何元素。<br>absolute（绝对定位）：<br>对象脱离常规流，此时偏移属性参照的是离自身最近的定位祖先元素，如果没有定位的祖先元素，则一直回溯到body元素。盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。<br>fixed（固定定位）：<br>与absolute一致，但偏移定位是以窗口为参考。当出现滚动条时，对象不会随着滚动。<br>​——————————————————————————————-</p>
+<p>​查阅CSS2.1 ，元素的定位方案（Positioning Schemes）一共分三种：</p>
+<p>常规流：包含三种规则：块级元素的块级格式、行级元素的行级格式，两种元素的相对定位方式。</p>
+<p>浮动：（Float）</p>
+<p>绝对定位：有（absolute）和（fixed）两种</p>
+<p>​——————————————————————————————-</p>
+<p>上文中常规流的三种规则，说俗点就是</p>
+<p>1。天生为块级元素的这种车的外观和行驶规则（最典型的比如div），比如我们可以自定义它的高度宽度啦（可对其设置width，height属性)，他天生就独占一整条车道啦（width默认为100%，且默认在其前后添加换行）​。</p>
+<p>2。天生为行级元素的这种车的外观和行驶规则（比如span,em,strong）,我们不能自定义他的高度和宽度（设置width，height无效），天生就喜欢和别人追尾式行驶，不会独占车道（显示时不换行）。</p>
+<p>3。两辆车之间的相对定位规则，这里的两辆车我理解的是position : relative的那辆车，他相对于他在文档流中原来的默认位置飞起来后根据人为设置的left，top等偏移属性后偏移去了新的位置。（position默认值为static，也就是不能飞起来只能路用的。除了static外的relative，float，absolute，fixed全是可以飞的）。这里的两辆车的相对定位不是兄弟元素之间的相对定位。貌似涉及到CSS的设计初衷，所谓定位它必有一个参照物，如果按相对于兄弟元素定位，那么就有个前提，兄弟元素是已知的、确定的，但很多时候，比如文章的p， 可多可少根本确定不了，如果根据某个兄弟元素定位，但如果兄弟多了或少了呢，所以这种定位方式不现实。相对于父元素定位就不存在这个问题，因为元素肯定会有 父元素，没有父元素也有根元素HTML（position：relative的父元素是他在常规流中的默认位置那个）</p>
+<p>另，相对定位（relative），含有这个属性的元素就很没气节，原来在常规流的默认位置改变了则他也跟着变，永远围着整个body自己原来的那一小块老地方转。​所以说相对定位没有脱离文档流。</p>
+<p>4。绝对定位（absolute），就是这个东西就是在那里了，不管我爹生的其他娃的位置怎么动，我的位置不变。他脱离了文档流，自成江湖。</p>
+<p>一般使用绝对定位都是为了相对定位用的。（设置了position为absolute的元素会找到最附近的设置了position为relative的父元素，然后相对于他进行偏移），这个就类似于那个设置了relative的那个父元素是个黑帮大boss，这一片归我管，我里面的设置了absolute的子元素位置都是相对我而言的，和我在文档流旁边的兄弟的没有关系。</p>
+<p>5。固定定位（fixed）​是种特殊的绝对定位，他的偏移量是以浏览器窗口为参考。</p>
+<p>6。浮动定位（float）和绝对定位（absolute）很相似​。</p>
+<p>最后，除了默认的static之外的所有车都是可以飞上天的，relative的车飞上天之后原来的车位并不会被后来的车补上，而且他自己围着原来的车位转，但是absolute和float的飞上天后原来的车位会被常规流的车补上。<br>relative飞上天后并不改变元素的display属性，就是行级的飞上天之后还是行级的，不会无缘无故变成块级。</p>
+<p>absolute的车飞上天的话， 行级元素则默认强制变块级（因为天上空间充裕，想走多少车道就多少车道，不用和原来在陆地上做行级元素那样憋屈）</p>
+<p>另外如果担心飞起来的absolute把底下的元素遮挡，可以使用z-index属性来调整堆叠顺序。​z-index是z-坐标轴的意思，index有索引，指数，坐标轴的意思。屏幕上有xy轴，空间上那就有个z轴，垂直屏幕所在平面指向用户的那条。可以取值-1，0，1，就像几张图层。使用z-index属性的前提是元素的position属性要设为relative或者absolute，他对position为static的不起作用（position默认为static）</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
             <li class="next">
-                <a href= "/2017/11/24/hello-world/" title= Hello Friend >
+                <a href= "/2016/07/23/计算机网络扫盲/" title= 计算机网络扫盲 >
                     <span>Next Post</span>
-                    <span>Hello Friend</span>
+                    <span>计算机网络扫盲</span>
                 </a>
             </li>
         
-        
-            <li class="previous">
-                <a href= "/2015/12/01/关于CSS盒子模型の定位の生动理解/" title= 关于CSS盒子模型の定位の生动理解 >
-                    <span>Previous Post</span>
-                    <span>关于CSS盒子模型の定位の生动理解</span>
-                </a>
-            </li>
         
     </ul>
     <!-- 评论插件 -->
@@ -315,7 +278,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器是啥"><span class="toc-number">1.</span> <span class="toc-text">服务器是啥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何访问服务器"><span class="toc-number">2.</span> <span class="toc-text">如何访问服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol>
+        
     </div>
     
     <div class="back-top">&#xe639;</div>
