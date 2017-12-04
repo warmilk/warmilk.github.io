@@ -102,11 +102,11 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
     
         <a class="post-tag" href="javascript:void(0);" data-href = web开发科普>web开发科普</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
     
 </div>
             
@@ -183,26 +183,36 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>首先要理解“文档流”这个概念。文档流实际上是一种民间说法，官方说法是常规流（normal flow）。从直观上理解正常流指的是元素按照其在HTML 中的位置顺序决定排布的过程，主要的形式是自上而下，一行接一行，每一行从左至右。</p>
-<p>我们还可以把常规流形象的比喻为马路上的车流的行驶规则。假设有些车太宽了只能够占据一行，那就是块级元素（black element）。有的车比较瘦小，可以并排行驶，那就是就是内联元素（inline element）。在这些车流中有添加了某些附加属性的超级变形金刚车型，他们的车由默认的只能陆用变成了空路两用的，也就是说可以飞起来。当然原来在地上的车辆可以选择填补或不填补起飞车辆的位置。​</p>
-<p>记住！！常规流=马路上的车的行驶规则！！</p>
+        <p><strong>文档流</strong> 是什么？</p>
+<p><strong>文档流</strong> 实际上是一种民间说法，官方说法是 <strong>常规流</strong>（normal flow）。</p>
+<p>从直观上理解，<strong>文档流</strong> 指的是</p>
+<blockquote>
+<p>元素按照其在HTML文件中的位置顺序，决定它在显示器上如何排布的过程。主要的形式是自上而下，一行接一行，每一行从左至右。</p>
+</blockquote>
+<p>我们还可以把常规流形象的比喻为马路上的车流的行驶规则。</p>
+<p>假设有些车太宽了只能够占据一行，那就是块级元素（black element）。有的车比较瘦小，可以并排行驶，那就是就是内联元素（inline element）。在这些车流中有添加了某些附加属性的超级变形金刚车型，他们的车由默认的只能陆用变成了空路两用的，也就是说可以飞起来。当然原来在地上的车辆可以选择填补或不填补起飞车辆的位置。​</p>
+<p>常规流这些神马的，其实就是马路上的车的行驶规则</p>
 <p>接下来就讲讲下面这段在正儿八经的CSS参考手册上挖下来的原话如何胡说八道地理解吧</p>
 <p>——————————–CSS参考手册原话—————————————–</p>
-<p>static（静态定位）：<br>对象遵循常规流。此时4个定位偏移属性top，right，bottom，left不会被应用。<br>relative（相对定位）：<br>对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left这4个定位偏移属性进行偏移时不会影响常规流中的任何元素。<br>absolute（绝对定位）：<br>对象脱离常规流，此时偏移属性参照的是离自身最近的定位祖先元素，如果没有定位的祖先元素，则一直回溯到body元素。盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。<br>fixed（固定定位）：<br>与absolute一致，但偏移定位是以窗口为参考。当出现滚动条时，对象不会随着滚动。<br>​——————————————————————————————-</p>
+<p>static（静态定位）：<br>对象遵循常规流。此时4个定位偏移属性top，right，bottom，left不会被应用。</p>
+<p>relative（相对定位）：<br>对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left这4个定位偏移属性进行偏移时不会影响常规流中的任何元素。</p>
+<p>absolute（绝对定位）：<br>对象脱离常规流，此时偏移属性参照的是离自身最近的定位祖先元素，如果没有定位的祖先元素，则一直回溯到body元素。盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠。</p>
+<p>fixed（固定定位）：<br>与absolute一致，但偏移定位是以窗口为参考。当出现滚动条时，对象不会随着滚动。</p>
+<p>​——————————————————————————————-</p>
 <p>​查阅CSS2.1 ，元素的定位方案（Positioning Schemes）一共分三种：</p>
 <p>常规流：包含三种规则：块级元素的块级格式、行级元素的行级格式，两种元素的相对定位方式。</p>
 <p>浮动：（Float）</p>
 <p>绝对定位：有（absolute）和（fixed）两种</p>
-<p>​——————————————————————————————-</p>
-<p>上文中常规流的三种规则，说俗点就是</p>
-<p>1。天生为块级元素的这种车的外观和行驶规则（最典型的比如div），比如我们可以自定义它的高度宽度啦（可对其设置width，height属性)，他天生就独占一整条车道啦（width默认为100%，且默认在其前后添加换行）​。</p>
-<p>2。天生为行级元素的这种车的外观和行驶规则（比如span,em,strong）,我们不能自定义他的高度和宽度（设置width，height无效），天生就喜欢和别人追尾式行驶，不会独占车道（显示时不换行）。</p>
-<p>3。两辆车之间的相对定位规则，这里的两辆车我理解的是position : relative的那辆车，他相对于他在文档流中原来的默认位置飞起来后根据人为设置的left，top等偏移属性后偏移去了新的位置。（position默认值为static，也就是不能飞起来只能路用的。除了static外的relative，float，absolute，fixed全是可以飞的）。这里的两辆车的相对定位不是兄弟元素之间的相对定位。貌似涉及到CSS的设计初衷，所谓定位它必有一个参照物，如果按相对于兄弟元素定位，那么就有个前提，兄弟元素是已知的、确定的，但很多时候，比如文章的p， 可多可少根本确定不了，如果根据某个兄弟元素定位，但如果兄弟多了或少了呢，所以这种定位方式不现实。相对于父元素定位就不存在这个问题，因为元素肯定会有 父元素，没有父元素也有根元素HTML（position：relative的父元素是他在常规流中的默认位置那个）</p>
+<p>​——————————————————————————-</p>
+<p>上文中常规流的三种规则，通俗描述就是：</p>
+<p>1.天生为块级元素的这种车的外观和行驶规则（最典型的比如div），比如我们可以自定义它的高度宽度啦（可对其设置width，height属性)，他天生就独占一整条车道啦（width默认为100%，且默认在其前后添加换行）​。</p>
+<p>2.天生为行级元素的这种车的外观和行驶规则（比如span,em,strong）,我们不能自定义他的高度和宽度（设置width，height无效），天生就喜欢和别人追尾式行驶，不会独占车道（显示时不换行）。</p>
+<p>3.两辆车之间的相对定位规则，这里的两辆车我理解的是position : relative的那辆车，他相对于他在文档流中原来的默认位置飞起来后根据人为设置的left，top等偏移属性后偏移去了新的位置。（position默认值为static，也就是不能飞起来只能路用的。除了static外的relative，float，absolute，fixed全是可以飞的）。这里的两辆车的相对定位不是兄弟元素之间的相对定位。貌似涉及到CSS的设计初衷，所谓定位它必有一个参照物，如果按相对于兄弟元素定位，那么就有个前提，兄弟元素是已知的、确定的，但很多时候，比如文章的p， 可多可少根本确定不了，如果根据某个兄弟元素定位，但如果兄弟多了或少了呢，所以这种定位方式不现实。相对于父元素定位就不存在这个问题，因为元素肯定会有 父元素，没有父元素也有根元素HTML（position：relative的父元素是他在常规流中的默认位置那个）</p>
 <p>另，相对定位（relative），含有这个属性的元素就很没气节，原来在常规流的默认位置改变了则他也跟着变，永远围着整个body自己原来的那一小块老地方转。​所以说相对定位没有脱离文档流。</p>
-<p>4。绝对定位（absolute），就是这个东西就是在那里了，不管我爹生的其他娃的位置怎么动，我的位置不变。他脱离了文档流，自成江湖。</p>
-<p>一般使用绝对定位都是为了相对定位用的。（设置了position为absolute的元素会找到最附近的设置了position为relative的父元素，然后相对于他进行偏移），这个就类似于那个设置了relative的那个父元素是个黑帮大boss，这一片归我管，我里面的设置了absolute的子元素位置都是相对我而言的，和我在文档流旁边的兄弟的没有关系。</p>
-<p>5。固定定位（fixed）​是种特殊的绝对定位，他的偏移量是以浏览器窗口为参考。</p>
-<p>6。浮动定位（float）和绝对定位（absolute）很相似​。</p>
+<p>4.绝对定位（absolute），就是这个东西就是在那里了，不管我爹生的其他娃的位置怎么动，我的位置不变。他脱离了文档流，自成江湖。</p>
+<p>一般相对定位都是作为绝对定位的参考元素来用的。（设置了position为absolute的元素会找到最附近的设置了position为relative的父元素，然后相对于他进行偏移），这个就类似于那个设置了relative的那个父元素是个黑帮大boss，这一片归我管，我里面的设置了absolute的子元素位置都是相对我而言的，和我在文档流旁边的兄弟的没有关系。</p>
+<p>5.固定定位（fixed）​是种特殊的绝对定位，他的偏移量是以浏览器窗口为参考。</p>
+<p>6.浮动定位（float）和绝对定位（absolute）很相似​。</p>
 <p>最后，除了默认的static之外的所有车都是可以飞上天的，relative的车飞上天之后原来的车位并不会被后来的车补上，而且他自己围着原来的车位转，但是absolute和float的飞上天后原来的车位会被常规流的车补上。<br>relative飞上天后并不改变元素的display属性，就是行级的飞上天之后还是行级的，不会无缘无故变成块级。</p>
 <p>absolute的车飞上天的话， 行级元素则默认强制变块级（因为天上空间充裕，想走多少车道就多少车道，不用和原来在陆地上做行级元素那样憋屈）</p>
 <p>另外如果担心飞起来的absolute把底下的元素遮挡，可以使用z-index属性来调整堆叠顺序。​z-index是z-坐标轴的意思，index有索引，指数，坐标轴的意思。屏幕上有xy轴，空间上那就有个z轴，垂直屏幕所在平面指向用户的那条。可以取值-1，0，1，就像几张图层。使用z-index属性的前提是元素的position属性要设为relative或者absolute，他对position为static的不起作用（position默认为static）</p>
@@ -319,12 +329,37 @@
     
     
     
-    <div class="total-archive"> Total : 3 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 4 </div>
     
     <div class="post-archive">
     
     
     
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href= "/2017/12/04/vue警告：子组不允许件修改父组件传入的数据/" >vue警告：子组不允许件修改父组件传入的数据</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2016 </div>
     <ul class="year-list">
@@ -367,13 +402,13 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
+        <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">科普</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
+        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
