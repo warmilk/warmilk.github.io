@@ -215,6 +215,22 @@
 <!-- City版安装代码已完成 -->
     
     
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: "Windows下如何安装sass命令行", // 可选。默认为 location.href
+        owner: 'warmilk',
+        repo: 'warmilk.github.io',
+        oauth: {
+            client_id: '5bcd23d32c264253b6dd',
+            client_secret: 'ae02dbfb60add639e232fc9d7efca7e24fe1608f',
+        },
+    })
+    gitment.render('container')
+</script>
+
     <!--PC版-->
 
     <!--PC版-->
@@ -290,12 +306,6 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -504,13 +514,13 @@
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">VScode</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">编辑器</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">SASS</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
