@@ -188,9 +188,24 @@
 <p>当您通过安装向导安装时，您将在屏幕上看到这个界面:</p>
 <p><img src="/images/setup.jpg" style="width:95%;"></p>
 <p>只需将中间的第二项的环境变量指定为Ruby的安装路径即可（它用于告诉您的命令行指令在哪里找到到Ruby的可执行文件），否则当您试图在命令提示符中通过Ruby安装Sass时，您将得到错误消息：“ruby不被识别为内部或外部命令”</p>
-<h2 id="使用命令行安装Sass："><a href="#使用命令行安装Sass：" class="headerlink" title="使用命令行安装Sass："></a>使用命令行安装Sass：</h2><p>既然已经安装了Ruby，就可以安装Sass了。可通过以下方式打开Windows自带命令行:</p>
-<p>开始 -&gt; 运行 , 然后输入“cmd”</p>
-<p><a href="https://www.impressivewebs.com/sass-on-windows/" target="_blank" rel="noopener">https://www.impressivewebs.com/sass-on-windows/</a></p>
+<h2 id="使用命令行安装Sass："><a href="#使用命令行安装Sass：" class="headerlink" title="使用命令行安装Sass："></a>使用命令行安装Sass：</h2><p>既然已经安装了Ruby，就可以安装Sass了。使用Bash或者powershell或者cmd等命令行工具进行下列操作均可：</p>
+<p>可通过以下方式打开Windows自带的名为cmd的命令行工具：</p>
+<p>开始 -&gt; 运行（或者直接快捷键win + R） , 然后输入“cmd”</p>
+<p>然后在cmd内输入下列命令：</p>
+<blockquote>
+<p><strong>gem install sass</strong></p>
+</blockquote>
+<p>按下enter键，耐心等待片刻。当出现如下图时说明安装成功了：</p>
+<p><img src="/images/sass-step2.jpg" style="width:95%;"></p>
+<p>如果你想拥有更丰富的功能，比如使用Compass，那么你可以通过 <strong>gem install compass</strong> 来安装Compass，因为Compass是基于sass的，所以执行Compass的安装命令会同时安装sass和compass。Compass的功能在此不再赘述，谷歌一下即可。</p>
+<h2 id="创建一个-sass后缀的文件："><a href="#创建一个-sass后缀的文件：" class="headerlink" title="创建一个.sass后缀的文件："></a>创建一个.sass后缀的文件：</h2><p>.sass文件内是可以写原生css的，所以把现有的.css文件的后缀改为.sass之后在其中使用sass语法编写代码是完全可行的，改完之后叫Sass帮忙编译下即可。</p>
+<h2 id="让Sass监控-sass文件的变动："><a href="#让Sass监控-sass文件的变动：" class="headerlink" title="让Sass监控.sass文件的变动："></a>让Sass监控.sass文件的变动：</h2><p>现在已经安装了Ruby和Sass，您希望告诉Sass你正在处理哪个.sass文件，并让它把当前的.sass文件自动地编译成.css文件。</p>
+<p>首先打开命令行工具，切换到当前的工作目录（你正在编辑的.sass文件的所在位置），Windows用户一般是使用 <strong>cd F:\workspace\要编译的sass文件所在目录 </strong> 命令来完成</p>
+<p>比如你正在编辑styles.scss文件，打算让Sass监听其更改并实时编译至styles.css，在当前目录下输入以下命令即可：</p>
+<blockquote>
+<p><strong>sass –watch styles.scss:styles.css</strong></p>
+</blockquote>
+<p>更多详情请查询sass官网XD</p>
 
     </article>
     <!-- 前后页  -->
@@ -295,7 +310,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Ruby："><span class="toc-number">1.</span> <span class="toc-text">安装Ruby：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用命令行安装Sass："><span class="toc-number">2.</span> <span class="toc-text">使用命令行安装Sass：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Ruby："><span class="toc-number">1.</span> <span class="toc-text">安装Ruby：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用命令行安装Sass："><span class="toc-number">2.</span> <span class="toc-text">使用命令行安装Sass：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个-sass后缀的文件："><span class="toc-number">3.</span> <span class="toc-text">创建一个.sass后缀的文件：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#让Sass监控-sass文件的变动："><span class="toc-number">4.</span> <span class="toc-text">让Sass监控.sass文件的变动：</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -309,6 +324,10 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
