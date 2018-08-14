@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        曲英的博客 | 玉树临风美少年 - 记录技术与生活
+        使用eventBus进行兄弟组件通信 · 曲英的博客 | 玉树临风美少年 - 记录技术与生活
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -50,13 +50,22 @@
     
 </head>
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >走り続けてこそ人生.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">使用eventBus进行兄弟组件通信</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>走り続けてこそ人生.</a>
 </header>
@@ -66,17 +75,17 @@
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/intro-desktop.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            走り続けてこそ人生.
-            <!-- 文章页  -->
+            使用eventBus进行兄弟组件通信
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -84,12 +93,23 @@
             <!-- 主页副标题  -->
             
             
-                it's better to burn out than to fade away
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/08/14</span>
+            </div>
         
     </div>
 </div>
@@ -157,121 +177,58 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2015/12/01/关于CSS盒子模型の定位の生动理解/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>CSS盒子模型の定位</span>
-                    </h2>
-                <div class="abstract-content">
-                    文档流 是什么？
-文档流 实际上是一种民间说法，官方说法是 常规流（normal flow）。
-从直观上理解，文档流 指的是
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>在不用Vuex的情况下，当需要做同级组件间的数据传递时我们常常用到EventBus，其实际上就是另外定义一个全局Vue实例，在此实例上订阅和触发事件可以在全局有效。</p>
+<p>目前网上的写法大都如此：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Register global event bus</span></span><br><span class="line">Vue.prototype.$bus = <span class="keyword">new</span> Vue(); </span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  router: Router,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use in component A</span></span><br><span class="line">methods: &#123;</span><br><span class="line">  login()&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">this</span>.$bus.$emit(<span class="string">'my-event'</span>, <span class="string">'hello'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use in component B</span></span><br><span class="line">created: &#123;</span><br><span class="line">  <span class="keyword">this</span>.$bus.$on(<span class="string">'my-event'</span>, (eventData) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(eventData);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样当在 <strong>componentA</strong> 中执行 <strong>login</strong> 时，<strong>componentB</strong> 中就会打印 <strong>hello</strong>，似乎很对。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>假设有 <strong>componentC</strong> ,当你 <strong>B</strong> 和 <strong>C</strong> 之间反复切换几次路由后，再去 <strong>A</strong> 执行 <strong>login</strong> 会发现， <strong>B</strong> 中一下子打印了多次 <strong>hello</strong> ,而且路由切换几次，就会多打印几次。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>这个问题产生的根源在于没有在组件切换时正确的释放事件订阅。 <strong>B</strong> 正确写法应该为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Use in component B</span></span><br><span class="line">created: &#123;</span><br><span class="line">  <span class="keyword">this</span>.$bus.$on(<span class="string">'my-event'</span>, <span class="keyword">this</span>.handleMyEvent)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  handleMyEvent(eventData) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(eventData)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// or destroyed</span></span><br><span class="line">beforeDestroy() &#123;</span><br><span class="line">  <span class="keyword">this</span>.$bus.$off(<span class="string">'my-event'</span>, <span class="keyword">this</span>.handleMyEvent)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/01/19/vue动态路由实现用户权限控制/" title= vue动态路由实现用户权限控制 >
+                    <span>Previous Post</span>
+                    <span>vue动态路由实现用户权限控制</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-元素按照其在HTML文件中的位置顺序，决定它在显示器上如何排布的过程。主要的形式是自上而下，一行接一行，每一行从左至右。
+<!-- City版安装代码已完成 -->
+    
+    
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: "使用eventBus进行兄弟组件通信", // 可选。默认为 location.href
+        owner: 'warmilk',
+        repo: 'warmilk.github.io',
+        oauth: {
+            client_id: '5bcd23d32c264253b6dd',
+            client_secret: 'ae02dbfb60add639e232fc9d7efca7e24fe1608f',
+        },
+    })
+    gitment.render('container')
+</script>
 
-我们还可以把常规流形象的比喻为马路上的车流的行驶规则。
-假设有些车太宽了只能够占据一行，那就是块级元素（black element）。有的车比较瘦小，可以并排行驶，那就是就是内联元素（inline element）。在这些车流中有添加了某些附加属性的超级变形金刚车型，他们的车由默认的只能陆用变成了空路两用的，也就是说可以飞起来。当然原来在地...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = web开发科普>web开发科普</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2015/12/01</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2015/06/11/hello-world/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Hello Friend</span>
-                    </h2>
-                <div class="abstract-content">
-                    欢迎光临，祝旅途愉快。我叫曲英，目前是一名大二在校生。目标是成为职业前（ban）端（zhuan）。主业逛吃逛喝猫妈，副业写代码。久远的未来应该会是名天天打麻将的废柴师奶XD
+    <!--PC版-->
 
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2015/06/11</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">#PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" src= /avatar/littleSoldier.jpg >
-    <div class="profile-name">邓曲英</div>
-    
-    <div class="profile-signature">
-        Web Developer
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="//github.com/warmilk" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
-    
-        
-            
-                <a href="//www.zhihu.com/people/da-miao-gong/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
-            
-        
-    
-        
-            
-                <a href="//twitter.com/milkcatnolita" class="iconfont-archer twitter" target="_blank" title="twitter"></a>
-            
-        
-    
-
-    </div>
-    
-    
-    
-        <div class="about-me">
-            <div>
-                <a href = "/intro/about.html" >ABOUT ME</a>
-            </div>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
@@ -320,6 +277,13 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
