@@ -272,12 +272,22 @@ https://medium.freecodecamp.org/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853
                         <span>vue警告：子组不允许件修改父组件传入的数据</span>
                     </h2>
                 <div class="abstract-content">
-                    父组件，子组件（一个填表单数据的弹窗）https://segmentfault.com/q/1010000005345202
-
+                    父组件，子组件（一个填表单数据的弹窗）
+方法一props传递数据不是双向绑定的，而是单向数据流，父组件的数据变化时，也会传递到子组件中，这就意外着我们不应该在子组件中修改props。所以我们在关闭弹窗的时候就需要通过$emit来修改父组件的数据，然后数据会自动传到子组件中。
+所以弹窗的关闭事件，涉及到子组件往父组件传参，
+Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件的事件来修改数据。
+在子组件中，在点击关闭，或者遮罩层的时候触发下面这个方法：
+123456methods: &#123;	closeMyself() &#123;		this.$emit("on-clos...
                 </div>
             </a>
             <div class="abstract-post-meta">
                 <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = vue>vue</a>
+    
+</div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
@@ -506,8 +516,6 @@ https://medium.freecodecamp.org/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853
     
     
     
-    
-    
     <div class="total-archive"> Total : 12 </div>
     
     <div class="post-archive">
@@ -612,19 +620,21 @@ https://medium.freecodecamp.org/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">VScode</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">编辑器</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">SASS</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">vue</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">科普</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">VScode</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">编辑器</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">SASS</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
     
