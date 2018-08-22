@@ -149,77 +149,15 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/20/VScode报错：请安装sass命令行工具/" >
+            <a class="content-show-full" href = "/2018/08/22/mint-ui阻止input唤醒输入法/" >
                     <h2 class="abstract-title">
                         
-                        <span>Windows下如何安装sass命令行</span>
+                        <span>mint-ui阻止input唤醒输入法</span>
                     </h2>
                 <div class="abstract-content">
-                    在使用VScode打开.sass后缀文件时，VScode终端输出乱码一串，并报错：无法使用sass相关扩展，请安装sass命令行工具。查阅Sass官网，并无安装命令行cli工具相关介绍，遂文之。
-安装Ruby：因为Sass是一个Ruby gem，所以您需要做的第一件事，就是使用Windows安装程序安装Ruby。与OS X不同，Ruby没有默认安装在Windows上，所以Windows用户需要手动安装它。
-当您通过安装向导安装时，您将在屏幕上看到这个界面:
-
-只需将中间的第二项的环境变量指定为Ruby的安装路径即可（它用于告诉您的命令行指令在哪里找到到Ruby的可执行文件），否则当您试图...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = VScode>VScode</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 编辑器>编辑器</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = SASS>SASS</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/20</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/11/js原型链乱弹/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>js原型链乱弹</span>
-                    </h2>
-                <div class="abstract-content">
-                    对于目前仅有商用项目经验不算多的我来说，任何软件工程方法，编程的设计模式，都是因为我们没有超长的竖着的屏幕（前端组件化），程序员懒（类的继承）···
-前端的组件化在某种意义来说，实现代码的分治远比用作组件复用的意义更重大，因为那些与业务逻辑无关的基础组件早已有了现成的优秀实现（例element-ui）。
-在需要我们动手写有各种复杂业务逻辑和业务数据的项目组件时，组件化能帮助我们实现代码分治的优势就大大凸显了
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/11</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/11/CSS黑魔法收藏整理/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>CSS黑魔法收藏整理</span>
-                    </h2>
-                <div class="abstract-content">
-                    :check + label选择器 超方便制作表单控件https://developer.mozilla.org/en-US/docs/Web/CSS/:checked
-https://github.com/jawil/blog/issues/29
-https://www.w3cplus.com/css/dirty-tricks-dark-corners-front-end-pt1.html
-其实这些黑魔法认真看MDN全都有滴 =。=
+                    使用@mousedown事件即可，记得要加.native后缀，为了能成功绑定到真正的dom元素上。
+1&lt;mt-field label="出生日期" placeholder="1996-08-17" v-model="form.birthday" @mousedown.native="showPicker"&gt;&lt;/mt-field&gt;
+123456methods: &#123;	showPicker(e)&#123;		e.preventDefault(); //阻止输入法的唤醒		...	&#125;&#125;
 
                 </div>
             </a>
@@ -228,106 +166,15 @@ https://www.w3cplus.com/css/dirty-tricks-dark-corners-front-end-pt1.html
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Mint-UI>Mint-UI</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/11</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/07/用npm代替glup-grunt作为项目构建工具/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>前端构建工具の杂谈 | gulp/webpacke/npm能提高厨艺你造吗</span>
-                    </h2>
-                <div class="abstract-content">
-                    用npm代替glup/grunt作为项目构建工具参考文章 https://www.keithcirkel.co.uk/why-we-should-stop-using-grunt/
-还有http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/
-https://medium.freecodecamp.org/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8和https://egoist.moe/2016/08/29/kill-gulp-with-npm-scripts...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/07</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/04/vue警告：子组不允许件修改父组件传入的数据/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>vue警告：子组不允许件修改父组件传入的数据</span>
-                    </h2>
-                <div class="abstract-content">
-                    父组件，子组件（一个填表单数据的弹窗）
-方法一props传递数据不是双向绑定的，而是单向数据流，父组件的数据变化时，也会传递到子组件中，这就意外着我们不应该在子组件中修改props。所以我们在关闭弹窗的时候就需要通过$emit来修改父组件的数据，然后数据会自动传到子组件中。
-所以弹窗的关闭事件，涉及到子组件往父组件传参，
-Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件的事件来修改数据。
-在子组件中，在点击关闭，或者遮罩层的时候触发下面这个方法：
-123456methods: &#123;	closeMyself() &#123;		this.$emit("on-clos...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = vue>vue</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/04</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/07/16/javascript异步编程·回调函数？同步？异步？/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>javascript异步编程 | 同步？异步？回调函数？事件循环？</span>
-                    </h2>
-                <div class="abstract-content">
-                    什么是 主线程 &amp;&amp; 工作线程
-主线程负责解释和执行JavaScript代码，由浏览器的js引擎执行，只有一个！只有一个！
-工作线程比如涉及到与操作系统交互的读取文件线程，处理ajax请求的线程等。他们可能由 js引擎 执行也可能不由 js引擎 执行。不管，都叫工作线程
-
-什么是 回调函数 小明本来是在家附近跟一堆小朋友一起玩耍的，但玩着玩着小明肚子饿了。
-于是16:30时，小明跑回家，叫妈妈做晚饭。
-可是妈妈说晚饭现在不能马上做好，大概要18:00才能做好，但具体时间未知。于是现在小明有两种选择：
-① 坐着干等妈妈把饭做好（同步的，阻塞式）
-② 跟妈妈说自己继续跑出去跟...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/07/16</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/08/22</span>
                 </div>
             </div>
         </article>

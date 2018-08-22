@@ -149,6 +149,39 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2018/08/22/mint-ui阻止input唤醒输入法/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>mint-ui阻止input唤醒输入法</span>
+                    </h2>
+                <div class="abstract-content">
+                    使用@mousedown事件即可，记得要加.native后缀，为了能成功绑定到真正的dom元素上。
+1&lt;mt-field label="出生日期" placeholder="1996-08-17" v-model="form.birthday" @mousedown.native="showPicker"&gt;&lt;/mt-field&gt;
+123456methods: &#123;	showPicker(e)&#123;		e.preventDefault(); //阻止输入法的唤醒		...	&#125;&#125;
+
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Mint-UI>Mint-UI</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/08/22</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/08/14/使用eventBus进行兄弟组件通信/" >
                     <h2 class="abstract-title">
                         
@@ -406,42 +439,6 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
             </div>
         </article>
     
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2016/07/23/计算机网络扫盲/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>计算机网络扫盲</span>
-                    </h2>
-                <div class="abstract-content">
-                    计算机网络的源模型是ISO/OSI七层模型，它是在具体的网络协议比如TCP，HTTP之类并未制定前就成型的，是一种架构思想，换个说法即空中楼阁。
-日后随着模型下的每一层对应的协议均涌现了优秀的实现，将这个抽象的理想模型变为了现实，于是它便从军事科研走向了日常生活的大规模应用，成为了网络世界的基础，就是目前大名鼎鼎的TCP/IP四层模型啦~
-在了解这个模型前，要先熟悉以下​几个名词：服务器，IP地址，域名，MAC地址，端口。
-服务器是啥服务器可以想象成一栋大厦，里面被划分成很多个房间（就是买服务器的时候所说的“空间”啦）
-一般直接买服务器的话买的是毛胚房，买空间的话则买的是精装房，服务器提...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = web开发科普>web开发科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 计算机网络>计算机网络</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2016/07/23</span>
-                </div>
-            </div>
-        </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -630,7 +627,30 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
     
     
-    <div class="total-archive"> Total : 12 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 13 </div>
     
     <div class="post-archive">
     
@@ -639,6 +659,11 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2018/08/22/mint-ui阻止input唤醒输入法/" >mint-ui阻止input唤醒输入法</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -734,15 +759,11 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">vue</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">科普</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Mint-UI</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
+        <span class="sidebar-tag-name"><a href= "#">vue</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">VScode</a></span>
     
@@ -751,6 +772,12 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
         <span class="sidebar-tag-name"><a href= "#">SASS</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">科普</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">

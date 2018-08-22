@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        曲英的博客 | 玉树临风美少年 - 记录技术与生活
+        mint-ui阻止input唤醒输入法 · 曲英的博客 | 玉树临风美少年 - 记录技术与生活
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >走り続けてこそ人生.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">mint-ui阻止input唤醒输入法</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>走り続けてこそ人生.</a>
 </header>
@@ -62,21 +73,45 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            mint-ui阻止input唤醒输入法
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Mint-UI>Mint-UI</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/08/22</span>
+            </div>
         
     </div>
 </div>
@@ -144,195 +179,52 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/20/VScode报错：请安装sass命令行工具/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Windows下如何安装sass命令行</span>
-                    </h2>
-                <div class="abstract-content">
-                    在使用VScode打开.sass后缀文件时，VScode终端输出乱码一串，并报错：无法使用sass相关扩展，请安装sass命令行工具。查阅Sass官网，并无安装命令行cli工具相关介绍，遂文之。
-安装Ruby：因为Sass是一个Ruby gem，所以您需要做的第一件事，就是使用Windows安装程序安装Ruby。与OS X不同，Ruby没有默认安装在Windows上，所以Windows用户需要手动安装它。
-当您通过安装向导安装时，您将在屏幕上看到这个界面:
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>使用@mousedown事件即可，记得要加.native后缀，为了能成功绑定到真正的dom元素上。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mt-field</span> <span class="attr">label</span>=<span class="string">"出生日期"</span> <span class="attr">placeholder</span>=<span class="string">"1996-08-17"</span> <span class="attr">v-model</span>=<span class="string">"form.birthday"</span> @<span class="attr">mousedown.native</span>=<span class="string">"showPicker"</span>&gt;</span><span class="tag">&lt;/<span class="name">mt-field</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">	showPicker(e)&#123;</span><br><span class="line">		e.preventDefault(); <span class="comment">//阻止输入法的唤醒</span></span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-只需将中间的第二项的环境变量指定为Ruby的安装路径即可（它用于告诉您的命令行指令在哪里找到到Ruby的可执行文件），否则当您试图...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = VScode>VScode</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 编辑器>编辑器</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = SASS>SASS</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/20</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/11/js原型链乱弹/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>js原型链乱弹</span>
-                    </h2>
-                <div class="abstract-content">
-                    对于目前仅有商用项目经验不算多的我来说，任何软件工程方法，编程的设计模式，都是因为我们没有超长的竖着的屏幕（前端组件化），程序员懒（类的继承）···
-前端的组件化在某种意义来说，实现代码的分治远比用作组件复用的意义更重大，因为那些与业务逻辑无关的基础组件早已有了现成的优秀实现（例element-ui）。
-在需要我们动手写有各种复杂业务逻辑和业务数据的项目组件时，组件化能帮助我们实现代码分治的优势就大大凸显了
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/08/14/使用eventBus进行兄弟组件通信/" title= 使用eventBus进行兄弟组件通信 >
+                    <span>Previous Post</span>
+                    <span>使用eventBus进行兄弟组件通信</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/11</span>
-                </div>
-            </div>
-        </article>
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/11/CSS黑魔法收藏整理/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>CSS黑魔法收藏整理</span>
-                    </h2>
-                <div class="abstract-content">
-                    :check + label选择器 超方便制作表单控件https://developer.mozilla.org/en-US/docs/Web/CSS/:checked
-https://github.com/jawil/blog/issues/29
-https://www.w3cplus.com/css/dirty-tricks-dark-corners-front-end-pt1.html
-其实这些黑魔法认真看MDN全都有滴 =。=
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: "mint-ui阻止input唤醒输入法", // 可选。默认为 location.href
+        owner: 'warmilk',
+        repo: 'warmilk.github.io',
+        oauth: {
+            client_id: '5bcd23d32c264253b6dd',
+            client_secret: 'ae02dbfb60add639e232fc9d7efca7e24fe1608f',
+        },
+    })
+    gitment.render('container')
+</script>
 
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/11</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/07/用npm代替glup-grunt作为项目构建工具/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>前端构建工具の杂谈 | gulp/webpacke/npm能提高厨艺你造吗</span>
-                    </h2>
-                <div class="abstract-content">
-                    用npm代替glup/grunt作为项目构建工具参考文章 https://www.keithcirkel.co.uk/why-we-should-stop-using-grunt/
-还有http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/
-https://medium.freecodecamp.org/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8和https://egoist.moe/2016/08/29/kill-gulp-with-npm-scripts...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/07</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/04/vue警告：子组不允许件修改父组件传入的数据/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>vue警告：子组不允许件修改父组件传入的数据</span>
-                    </h2>
-                <div class="abstract-content">
-                    父组件，子组件（一个填表单数据的弹窗）
-方法一props传递数据不是双向绑定的，而是单向数据流，父组件的数据变化时，也会传递到子组件中，这就意外着我们不应该在子组件中修改props。所以我们在关闭弹窗的时候就需要通过$emit来修改父组件的数据，然后数据会自动传到子组件中。
-所以弹窗的关闭事件，涉及到子组件往父组件传参，
-Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件的事件来修改数据。
-在子组件中，在点击关闭，或者遮罩层的时候触发下面这个方法：
-123456methods: &#123;	closeMyself() &#123;		this.$emit("on-clos...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = vue>vue</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/04</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/07/16/javascript异步编程·回调函数？同步？异步？/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>javascript异步编程 | 同步？异步？回调函数？事件循环？</span>
-                    </h2>
-                <div class="abstract-content">
-                    什么是 主线程 &amp;&amp; 工作线程
-主线程负责解释和执行JavaScript代码，由浏览器的js引擎执行，只有一个！只有一个！
-工作线程比如涉及到与操作系统交互的读取文件线程，处理ajax请求的线程等。他们可能由 js引擎 执行也可能不由 js引擎 执行。不管，都叫工作线程
+    <!--PC版-->
 
-什么是 回调函数 小明本来是在家附近跟一堆小朋友一起玩耍的，但玩着玩着小明肚子饿了。
-于是16:30时，小明跑回家，叫妈妈做晚饭。
-可是妈妈说晚饭现在不能马上做好，大概要18:00才能做好，但具体时间未知。于是现在小明有两种选择：
-① 坐着干等妈妈把饭做好（同步的，阻塞式）
-② 跟妈妈说自己继续跑出去跟...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/07/16</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -384,6 +276,13 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
