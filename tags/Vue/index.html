@@ -149,18 +149,16 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/04/vue警告：子组不允许件修改父组件传入的数据/" >
+            <a class="content-show-full" href = "/2018/08/22/mint-ui阻止input唤醒输入法/" >
                     <h2 class="abstract-title">
                         
-                        <span>vue警告：子组不允许件修改父组件传入的数据</span>
+                        <span>mint-ui阻止input唤醒输入法</span>
                     </h2>
                 <div class="abstract-content">
-                    父组件，子组件（一个填表单数据的弹窗）
-方法一props传递数据不是双向绑定的，而是单向数据流，父组件的数据变化时，也会传递到子组件中，这就意外着我们不应该在子组件中修改props。所以我们在关闭弹窗的时候就需要通过$emit来修改父组件的数据，然后数据会自动传到子组件中。
-所以弹窗的关闭事件，涉及到子组件往父组件传参，
-Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件的事件来修改数据。
-在子组件中，在点击关闭，或者遮罩层的时候触发下面这个方法：
-123456methods: &#123;	closeMyself() &#123;		this.$emit("on-clos...
+                    使用@mousedown事件即可，记得要加.native后缀，为了能成功绑定到真正的dom元素上。
+1&lt;mt-field label="出生日期" placeholder="1996-08-17" v-model="form.birthday" @mousedown.native="showPicker"&gt;&lt;/mt-field&gt;
+123456methods: &#123;	showPicker(e)&#123;		e.preventDefault(); //阻止输入法的唤醒		...	&#125;&#125;
+
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -168,13 +166,45 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = vue>vue</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Mint-UI>Mint-UI</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/04</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/08/22</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2018/08/14/使用eventBus进行兄弟组件通信/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>使用eventBus进行兄弟组件通信</span>
+                    </h2>
+                <div class="abstract-content">
+                    在不用Vuex的情况下，当需要做同级组件间的数据传递时我们常常用到EventBus，其实际上就是另外定义一个全局Vue实例，在此实例上订阅和触发事件可以在全局有效。
+目前网上的写法大都如此：
+12345678910111213141516171819202122// Register global event busVue.prototype.$bus = new Vue(); new Vue(&#123;  el: '#app',  router: Router,  template: '&lt;App/&gt;'&#125;);// Use in component Amethods...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/08/14</span>
                 </div>
             </div>
         </article>
@@ -386,7 +416,20 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
     
     
-    <div class="total-archive"> Total : 13 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 14 </div>
     
     <div class="post-archive">
     
@@ -414,6 +457,11 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
         <li class="archive-post-item">
             <span class="archive-post-date">01/12</span><a class="archive-post-title" href= "/2018/01/12/vue作用域插槽理解/" >vue作用域插槽理解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/11</span><a class="archive-post-title" href= "/2018/01/11/clipboard-js的使用/" >clipboard.js的使用（支付宝薅羊毛）</a>
         </li>
     
     
@@ -514,53 +562,6 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
         <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
-    
-    </div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
-    3、在根目录_config.yml里添加配置：
-    <pre style="color: #888; font-size: 0.6rem;">
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: false
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: false
-    tags: true</pre>
-    </div> 
-    <div class="sidebar-tag-list"></div>
-</div>
-    </div>
-</div> 
-    <script>
-    var jsInfo = {
-        root: '/'
-    }
-</script>
-    <!-- 不蒜子  -->
-    
-    <!-- CNZZ统计  -->
-    
-    </div>
-    </body>
-</html>
-
-
-class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
