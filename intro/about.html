@@ -6,48 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>测试撸羊毛</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 </head>
 
 <body>
-    <a class="touch">
-		<img class="bao" src="http://7xpa61.com1.z0.glb.clouddn.com/alipay.gif" width="240px" height="240px" />
-		<img class="close" src="http://www.bcoder.cn/close.png" alt="" />
-	</a>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script type="text/javascript">
-        //点击页面自动复制功能
-        function copyUrl2() {
-            var Url2 = document.getElementById("biao1").innerText;
-            var oInput = document.createElement('input');
-            oInput.value = Url2;
-            document.body.appendChild(oInput);
-            oInput.select(); // 选择对象
-            document.execCommand("Copy"); // 执行浏览器复制命令
-            oInput.className = 'oInput';
-            oInput.style.display = 'none';
-
-        }
-    </script>
-    <script type="text/javascript">
-        //点击广告
-        $(".touch .bao").click(function(event) {
-
-            alert("领取成功！打开支付宝app查看红包金额！");
-            $("a.touch").css({
-                display: 'none'
-            });
-        });
-
-        $(".touch .close").click(function(event) {
-            $(".touch").hide();
-        });
-
-        $(".touch-pc .close").click(function(event) {
-            $(".touch-pc").hide();
-        });
-    </script>
+    <input type="text" id="copyValue" value="测试要复制粘贴的内容"/>
+	<button type="button" data-clipboard-target='#copyValue'>复制</button>
+	<script>
+		var clipboard = new Clipboard('button');
+		clipboard.on('success',function(e){
+			e.clearSelection();
+			alert('复制成功');
+		});
+		clipboard.on('error',function(e){
+			e.clearSelection();
+			alert('复制失败');
+		});
+	</script>
 </body>
 
 </html>
