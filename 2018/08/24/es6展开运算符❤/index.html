@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        曲英的博客 | 玉树临风美少年 - 记录技术与生活
+        ❤ es6展开运算符 ❤ · 曲英的博客 | 玉树临风美少年 - 记录技术与生活
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >走り続けてこそ人生.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">❤ es6展开运算符 ❤</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>走り続けてこそ人生.</a>
 </header>
@@ -62,21 +73,43 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            ❤ es6展开运算符 ❤
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/08/24</span>
+            </div>
         
     </div>
 </div>
@@ -144,48 +177,70 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2015/12/01/关于CSS盒子模型の定位の生动理解/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>CSS盒子模型の定位</span>
-                    </h2>
-                <div class="abstract-content">
-                    文档流 是什么？
-文档流 实际上是一种民间说法，官方说法是 常规流（normal flow）。
-从直观上理解，文档流 指的是
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="让函数的-Apply-调用方式成为过去"><a href="#让函数的-Apply-调用方式成为过去" class="headerlink" title="让函数的 Apply 调用方式成为过去"></a>让函数的 Apply 调用方式成为过去</h2><p>有时候我们需要通过 Function.prototype.apply 来调用函数，参数就放在一个数组里。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doStuff</span> (<span class="params">x, y, z</span>) </span>&#123; &#125;</span><br><span class="line"><span class="keyword">var</span> args = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用函数并传参</span></span><br><span class="line">doStuff.apply(<span class="literal">null</span>, args);</span><br></pre></td></tr></table></figure>
+<p>现在有了展开运算符，我们可以完全避免使用 apply，只需在调用函数时在数组前加上展开运算符：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">doStuff(...args);</span><br></pre></td></tr></table></figure>
+<p>代码变得更短、更简洁，也不需要一个毫无用处的 null！</p>
+<h2 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h2><p>合并数组有各种方式，但是展开运算符为我们提供了一种新思路：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">arr1.push(...arr2) <span class="comment">// 在数组后面添加 arr2 里的元素</span></span><br><span class="line">arr1.unshift(...arr2) <span class="comment">//在数组前面添加 arr2 里的元素</span></span><br><span class="line">如果你想合并两个数组，并且想把元素放到数组中的任何位置，你可以这么做：</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">'two'</span>, <span class="string">'three'</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">'one'</span>, ...arr1, <span class="string">'four'</span>, <span class="string">'five'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// ["one", "two", "three", "four", "five"]</span></span><br></pre></td></tr></table></figure>
+<p>代码少了很多，还可以随意控制位置！</p>
+<h2 id="拷贝数组"><a href="#拷贝数组" class="headerlink" title="拷贝数组"></a>拷贝数组</h2><p>拷贝数组是个常见的任务，过去我们使用 Array.prototype.slice<br>来完成，但现在我们可以通过展开运算符得到数组的副本：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [...arr]; <span class="comment">// 等同于 arr.slice()</span></span><br><span class="line">arr2.push(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>这里要注意，数组里的对象仍然是引用类型的，因此实际上并不是所有内容都被“拷贝”了。</p>
+<h2 id="将参数或-NodeList-转成数组"><a href="#将参数或-NodeList-转成数组" class="headerlink" title="将参数或 NodeList 转成数组"></a>将参数或 NodeList 转成数组</h2><p>跟拷贝数组类似，我们用 <strong>Array.Prototype.slice</strong> 将 <strong>NodeList</strong> 和 <strong>arguments</strong> 对象转成真正的数组，但是现在我们可以使用展开运算符完成这个任务：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[...document.querySelectorAll(<span class="string">'div'</span>)]</span><br></pre></td></tr></table></figure>
+<p>你甚至可以从函数签名里得到数组形式的参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFn = <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Array.from</strong> 也可以做同样的事情。</p>
+<h2 id="使用-Math对象里的相关函数"><a href="#使用-Math对象里的相关函数" class="headerlink" title="使用 Math对象里的相关函数"></a>使用 Math对象里的相关函数</h2><p>在参数个数不确定的函数里使用展开运算符，再合适不过了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">9</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">1</span>];</span><br><span class="line"><span class="built_in">Math</span>.min(...numbers); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="对象解构"><a href="#对象解构" class="headerlink" title="对象解构"></a>对象解构</h2><p>解构操作在变量批量赋值上非常方便，省去了繁琐的声明和赋值操作。配合使用展开运算符，进一步简化操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; x, y, ...z &#125; = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">b</span>: <span class="number">4</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(z); <span class="comment">// &#123; a: 3, b: 4 &#125;</span></span><br></pre></td></tr></table></figure>
+<p><a href="www.jianshu.com">原文链接</a></p>
 
-元素按照其在HTML文件中的位置顺序，决定它在显示器上如何排布的过程。主要的形式是自上而下，一行接一行，每一行从左至右。
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/08/22/mint-ui阻止input唤醒输入法/" title= mint-ui阻止input唤醒输入法 >
+                    <span>Previous Post</span>
+                    <span>mint-ui阻止input唤醒输入法</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-我们还可以把常规流形象的比喻为马路上的车流的行驶规则。
-假设有些车太宽了只能够占据一行，那就是块级元素（black element）。有的车比较瘦小，可以并排行驶，那就是就是内联元素（inline element）。在这些车流中有添加了某些附加属性的超级变形金刚车型，他们的车由默认的只能陆用变成了空路两用的，也就是说可以飞起来。当然原来在地...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
+<!-- City版安装代码已完成 -->
     
-        <a class="post-tag" href="javascript:void(0);" data-href = CSS>CSS</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = web开发科普>web开发科普</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2015/12/01</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: "❤ es6展开运算符 ❤", // 可选。默认为 location.href
+        owner: 'warmilk',
+        repo: 'warmilk.github.io',
+        oauth: {
+            client_id: '5bcd23d32c264253b6dd',
+            client_secret: 'ae02dbfb60add639e232fc9d7efca7e24fe1608f',
+        },
+    })
+    gitment.render('container')
+</script>
+
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -237,6 +292,13 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#让函数的-Apply-调用方式成为过去"><span class="toc-number">1.</span> <span class="toc-text">让函数的 Apply 调用方式成为过去</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并数组"><span class="toc-number">2.</span> <span class="toc-text">合并数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拷贝数组"><span class="toc-number">3.</span> <span class="toc-text">拷贝数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将参数或-NodeList-转成数组"><span class="toc-number">4.</span> <span class="toc-text">将参数或 NodeList 转成数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-Math对象里的相关函数"><span class="toc-number">5.</span> <span class="toc-text">使用 Math对象里的相关函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象解构"><span class="toc-number">6.</span> <span class="toc-text">对象解构</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

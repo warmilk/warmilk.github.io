@@ -149,6 +149,39 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2018/08/24/es6展开运算符❤/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>❤ es6展开运算符 ❤</span>
+                    </h2>
+                <div class="abstract-content">
+                    让函数的 Apply 调用方式成为过去有时候我们需要通过 Function.prototype.apply 来调用函数，参数就放在一个数组里。
+12345function doStuff (x, y, z) &#123; &#125;var args = [0, 1, 2];// 调用函数并传参doStuff.apply(null, args);
+现在有了展开运算符，我们可以完全避免使用 apply，只需在调用函数时在数组前加上展开运算符：
+1doStuff(...args);
+代码变得更短、更简洁，也不需要一个毫无用处的 null！
+合并数组合并数组有各种方式，但是展开运算符为我们提供...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/08/24</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/08/22/mint-ui阻止input唤醒输入法/" >
                     <h2 class="abstract-title">
                         
@@ -395,39 +428,6 @@ https://medium.freecodecamp.org/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853
             </div>
         </article>
     
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/04/vue警告：子组不允许件修改父组件传入的数据/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>vue警告：子组不允许件修改父组件传入的数据</span>
-                    </h2>
-                <div class="abstract-content">
-                    父组件，子组件（一个填表单数据的弹窗）
-方法一props传递数据不是双向绑定的，而是单向数据流，父组件的数据变化时，也会传递到子组件中，这就意外着我们不应该在子组件中修改props。所以我们在关闭弹窗的时候就需要通过$emit来修改父组件的数据，然后数据会自动传到子组件中。
-所以弹窗的关闭事件，涉及到子组件往父组件传参，
-Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件的事件来修改数据。
-在子组件中，在点击关闭，或者遮罩层的时候触发下面这个方法：
-123456methods: &#123;	closeMyself() &#123;		this.$emit("on-clos...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = vue>vue</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/04</span>
-                </div>
-            </div>
-        </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -652,7 +652,12 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
     
     
-    <div class="total-archive"> Total : 14 </div>
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 15 </div>
     
     <div class="post-archive">
     
@@ -661,6 +666,11 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2018/08/24/es6展开运算符❤/" >❤ es6展开运算符 ❤</a>
+        </li>
     
     
         <li class="archive-post-item">
