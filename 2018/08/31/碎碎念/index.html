@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        js原型链乱弹 · 曲英的博客 | 玉树临风美少年 - 记录技术与生活
+        粗心大意·碎碎念 · 曲英的博客 | 玉树临风美少年 - 记录技术与生活
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -63,7 +63,7 @@
                 <a href="/" >走り続けてこそ人生.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">js原型链乱弹</a>
+                <a href="#" class="post-name">粗心大意·碎碎念</a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            js原型链乱弹
+            粗心大意·碎碎念
             <!-- 404 -->
             
         </h1>
@@ -100,9 +100,15 @@
         
             <!-- 文章页标签  -->
             
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = JavaScript>JavaScript</a>
+    
+</div>
+            
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/12/11</span>
+                <span class="post-intro-time">2018/08/31</span>
             </div>
         
     </div>
@@ -173,26 +179,22 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>对于目前仅有商用项目经验不算多的我来说，任何软件工程方法，编程的设计模式，都是因为我们没有超长的竖着的屏幕（前端组件化），程序员懒（类的继承）···</p>
-<p>前端的组件化在某种意义来说，实现代码的分治远比用作组件复用的意义更重大，因为那些与业务逻辑无关的基础组件早已有了现成的优秀实现（例element-ui）。</p>
-<p>在需要我们动手写有各种复杂业务逻辑和业务数据的项目组件时，组件化能帮助我们实现代码分治的优势就大大凸显了</p>
+        <h2 id="error的处理"><a href="#error的处理" class="headerlink" title="error的处理"></a>error的处理</h2><p>如果抛出了一个error，而且这个error怎么都log不出来，十有八九用JSON.stringify(error)就可以让error原形毕露了。想访问属性的话，就用JSON.parse(JSON.stringify(error)).属性.属性</p>
+<h2 id="不要手滑在循环体内写return"><a href="#不要手滑在循环体内写return" class="headerlink" title="不要手滑在循环体内写return"></a>不要手滑在循环体内写return</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; daysOfThisWeek.length; i++) &#123;</span><br><span class="line">     arr.push(&#123;</span><br><span class="line">         date: daysOfThisWeek[i],</span><br><span class="line">         day: days[i]</span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="keyword">return</span> arr; <span class="comment">//不要在循环体内return，会导致循环体只循环一次，包括forEach，map之类的</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> arr;</span><br></pre></td></tr></table></figure>
+<h2 id="如果你觉得你的逻辑没问题，那就看看是不是写错了位置-‘"><a href="#如果你觉得你的逻辑没问题，那就看看是不是写错了位置-‘" class="headerlink" title="如果你觉得你的逻辑没问题，那就看看是不是写错了位置 ##‘"></a>如果你觉得你的逻辑没问题，那就看看是不是写错了位置 ##‘</h2><p>比如该放到回调函数的花括号的作用域里，就不要放错放到了花括号外面</p>
+<h2 id="写if-懒得写else的时候，记得写return"><a href="#写if-懒得写else的时候，记得写return" class="headerlink" title="写if(){}懒得写else的时候，记得写return;"></a>写if(){}懒得写else的时候，记得写return;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>()&#123;</span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">		<span class="keyword">return</span>; <span class="comment">//这句return;不能忘记，不然的话不会跳出去执行下面的else语句</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//...else语句</span></span><br><span class="line">	<span class="comment">// 这里就相当于else</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="this-当前的方法属于谁，this就指向谁"><a href="#this-当前的方法属于谁，this就指向谁" class="headerlink" title="this: 当前的方法属于谁，this就指向谁"></a>this: 当前的方法属于谁，this就指向谁</h2><p>es6中箭头函数的this是个很迷的玩意儿</p>
+<h2 id="将对象存进sessionStorage里"><a href="#将对象存进sessionStorage里" class="headerlink" title="将对象存进sessionStorage里"></a>将对象存进sessionStorage里</h2><p>要将对象 JSON.Stringfy( ) 变成字符串之后才能存进去的，因为setItem()都只接受字符串参数</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2017/12/20/VScode报错：请安装sass命令行工具/" title= Windows下如何安装sass命令行 >
-                    <span>Next Post</span>
-                    <span>Windows下如何安装sass命令行</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2017/12/11/CSS黑魔法收藏整理/" title= CSS黑魔法收藏整理 >
+                <a href= "/2018/08/24/es6展开运算符❤/" title= ❤ es6展开运算符 ❤ >
                     <span>Previous Post</span>
-                    <span>CSS黑魔法收藏整理</span>
+                    <span>❤ es6展开运算符 ❤</span>
                 </a>
             </li>
         
@@ -208,7 +210,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     var gitment = new Gitment({
-        id: "js原型链乱弹", // 可选。默认为 location.href
+        id: "粗心大意·碎碎念", // 可选。默认为 location.href
         owner: 'warmilk',
         repo: 'warmilk.github.io',
         oauth: {
@@ -280,7 +282,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#error的处理"><span class="toc-number">1.</span> <span class="toc-text">error的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不要手滑在循环体内写return"><span class="toc-number">2.</span> <span class="toc-text">不要手滑在循环体内写return</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果你觉得你的逻辑没问题，那就看看是不是写错了位置-‘"><span class="toc-number">3.</span> <span class="toc-text">如果你觉得你的逻辑没问题，那就看看是不是写错了位置 ##‘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写if-懒得写else的时候，记得写return"><span class="toc-number">4.</span> <span class="toc-text">写if(){}懒得写else的时候，记得写return;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-当前的方法属于谁，this就指向谁"><span class="toc-number">5.</span> <span class="toc-text">this: 当前的方法属于谁，this就指向谁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将对象存进sessionStorage里"><span class="toc-number">6.</span> <span class="toc-text">将对象存进sessionStorage里</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>

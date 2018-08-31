@@ -176,7 +176,7 @@
         <p>2017年圣诞节，支付宝发了很多红包，盆友圈有程序猿通过薅羊毛的方式赚了不少赏金，在此分享下思路=。=</p>
 <p>其实就是发一条盆友圈，诱导朋友进入链接之后点击页面，悄悄咪咪把他的吱口令复制到你的剪贴板，并强制唤醒你的支付宝，然后赏金就在路上了···</p>
 <p>不多说，上代码</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>测试撸羊毛<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		input&#123;</span></span><br><span class="line"><span class="undefined">			visibility: hidden;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 引入clipboard.js --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"copyValue"</span> <span class="attr">value</span>=<span class="string">"你要偷偷摸摸粘贴到用户剪贴板的吱口令"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">data-clipboard-target</span>=<span class="string">'#copyValue'</span>&gt;</span>点我点我然后你剪贴板就会有东西了<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		var clipboard = new Clipboard('button');</span></span><br><span class="line"><span class="undefined">		clipboard.on('success',function(e)&#123;</span></span><br><span class="line"><span class="undefined">			e.clearSelection();</span></span><br><span class="line"><span class="undefined">			console.log('复制成功');</span></span><br><span class="line"><span class="undefined">			//这下面写唤醒支付宝的代码（流氓=。=）</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="undefined">		clipboard.on('error',function(e)&#123;</span></span><br><span class="line"><span class="undefined">			e.clearSelection();</span></span><br><span class="line"><span class="undefined">			console.log('复制失败');</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>测试撸羊毛<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		input&#123;</span></span><br><span class="line"><span class="undefined">			visibility: hidden;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 引入clipboard.js --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"copyValue"</span> <span class="attr">value</span>=<span class="string">"你要偷偷摸摸粘贴到用户剪贴板的吱口令"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">data-clipboard-target</span>=<span class="string">'#copyValue'</span>&gt;</span>点我点我然后你剪贴板就会有东西了<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> clipboard = <span class="keyword">new</span> Clipboard(<span class="string">'button'</span>);</span></span><br><span class="line"><span class="javascript">		clipboard.on(<span class="string">'success'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">			e.clearSelection();</span></span><br><span class="line"><span class="javascript">			<span class="built_in">console</span>.log(<span class="string">'复制成功'</span>);</span></span><br><span class="line"><span class="javascript">			<span class="comment">//这下面写唤醒支付宝的代码（流氓=。=）</span></span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="javascript">		clipboard.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="undefined">			e.clearSelection();</span></span><br><span class="line"><span class="javascript">			<span class="built_in">console</span>.log(<span class="string">'复制失败'</span>);</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>更新：2018年08月，貌似支付宝官方已经不支持生成吱口令然后粘贴领红包了···只能生成一串数字，然后通过搜索框搜索领取红包···也就是说该撸羊毛的方法已作废，gg</p>
 
     </article>
@@ -457,7 +457,24 @@
     
     
     
-    <div class="total-archive"> Total : 15 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 16 </div>
     
     <div class="post-archive">
     
@@ -466,6 +483,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/碎碎念/" >粗心大意·碎碎念</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -576,12 +598,6 @@
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">VScode</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">编辑器</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">SASS</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
@@ -590,11 +606,17 @@
     
         <span class="sidebar-tag-name"><a href= "#">vue</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">科普</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
+        <span class="sidebar-tag-name"><a href= "#">VScode</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">编辑器</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">SASS</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
