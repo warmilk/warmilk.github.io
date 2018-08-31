@@ -181,11 +181,11 @@
     <article class="article-entry">
         <h2 id="error的处理"><a href="#error的处理" class="headerlink" title="error的处理"></a>error的处理</h2><p>如果抛出了一个error，而且这个error怎么都log不出来，十有八九用JSON.stringify(error)就可以让error原形毕露了。想访问属性的话，就用JSON.parse(JSON.stringify(error)).属性.属性</p>
 <h2 id="不要手滑在循环体内写return"><a href="#不要手滑在循环体内写return" class="headerlink" title="不要手滑在循环体内写return"></a>不要手滑在循环体内写return</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; daysOfThisWeek.length; i++) &#123;</span><br><span class="line">     arr.push(&#123;</span><br><span class="line">         date: daysOfThisWeek[i],</span><br><span class="line">         day: days[i]</span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="keyword">return</span> arr; <span class="comment">//不要在循环体内return，会导致循环体只循环一次，包括forEach，map之类的</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> arr;</span><br></pre></td></tr></table></figure>
-<h2 id="如果你觉得你的逻辑没问题，那就看看是不是写错了位置-‘"><a href="#如果你觉得你的逻辑没问题，那就看看是不是写错了位置-‘" class="headerlink" title="如果你觉得你的逻辑没问题，那就看看是不是写错了位置 ##‘"></a>如果你觉得你的逻辑没问题，那就看看是不是写错了位置 ##‘</h2><p>比如该放到回调函数的花括号的作用域里，就不要放错放到了花括号外面</p>
+<h2 id="如果你觉得你的逻辑没问题，那就看看是不是写错了位置"><a href="#如果你觉得你的逻辑没问题，那就看看是不是写错了位置" class="headerlink" title="如果你觉得你的逻辑没问题，那就看看是不是写错了位置"></a>如果你觉得你的逻辑没问题，那就看看是不是写错了位置</h2><p>比如该放到回调函数的花括号的作用域里，就不要放错放到了花括号外面</p>
 <h2 id="写if-懒得写else的时候，记得写return"><a href="#写if-懒得写else的时候，记得写return" class="headerlink" title="写if(){}懒得写else的时候，记得写return;"></a>写if(){}懒得写else的时候，记得写return;</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>()&#123;</span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">		<span class="keyword">return</span>; <span class="comment">//这句return;不能忘记，不然的话不会跳出去执行下面的else语句</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//...else语句</span></span><br><span class="line">	<span class="comment">// 这里就相当于else</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="this-当前的方法属于谁，this就指向谁"><a href="#this-当前的方法属于谁，this就指向谁" class="headerlink" title="this: 当前的方法属于谁，this就指向谁"></a>this: 当前的方法属于谁，this就指向谁</h2><p>es6中箭头函数的this是个很迷的玩意儿</p>
 <h2 id="将对象存进sessionStorage里"><a href="#将对象存进sessionStorage里" class="headerlink" title="将对象存进sessionStorage里"></a>将对象存进sessionStorage里</h2><p>要将对象 JSON.Stringfy( ) 变成字符串之后才能存进去的，因为setItem()都只接受字符串参数</p>
-
+<h2 id="多值匹配case"><a href="#多值匹配case" class="headerlink" title="多值匹配case"></a>多值匹配case</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (varName)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">case</span> <span class="string">"afshin"</span>:</span><br><span class="line">   <span class="keyword">case</span> <span class="string">"saeed"</span>:</span><br><span class="line">   <span class="keyword">case</span> <span class="string">"larry"</span>: </span><br><span class="line">       alert(<span class="string">'Hey'</span>);</span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">default</span>: </span><br><span class="line">       alert(<span class="string">'Default case'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -282,7 +282,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#error的处理"><span class="toc-number">1.</span> <span class="toc-text">error的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不要手滑在循环体内写return"><span class="toc-number">2.</span> <span class="toc-text">不要手滑在循环体内写return</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果你觉得你的逻辑没问题，那就看看是不是写错了位置-‘"><span class="toc-number">3.</span> <span class="toc-text">如果你觉得你的逻辑没问题，那就看看是不是写错了位置 ##‘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写if-懒得写else的时候，记得写return"><span class="toc-number">4.</span> <span class="toc-text">写if(){}懒得写else的时候，记得写return;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-当前的方法属于谁，this就指向谁"><span class="toc-number">5.</span> <span class="toc-text">this: 当前的方法属于谁，this就指向谁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将对象存进sessionStorage里"><span class="toc-number">6.</span> <span class="toc-text">将对象存进sessionStorage里</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#error的处理"><span class="toc-number">1.</span> <span class="toc-text">error的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不要手滑在循环体内写return"><span class="toc-number">2.</span> <span class="toc-text">不要手滑在循环体内写return</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果你觉得你的逻辑没问题，那就看看是不是写错了位置"><span class="toc-number">3.</span> <span class="toc-text">如果你觉得你的逻辑没问题，那就看看是不是写错了位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写if-懒得写else的时候，记得写return"><span class="toc-number">4.</span> <span class="toc-text">写if(){}懒得写else的时候，记得写return;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-当前的方法属于谁，this就指向谁"><span class="toc-number">5.</span> <span class="toc-text">this: 当前的方法属于谁，this就指向谁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将对象存进sessionStorage里"><span class="toc-number">6.</span> <span class="toc-text">将对象存进sessionStorage里</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多值匹配case"><span class="toc-number">7.</span> <span class="toc-text">多值匹配case</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -296,6 +296,20 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -604,19 +618,19 @@
     
         <span class="sidebar-tag-name"><a href= "#">Mint-UI</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">vue</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">科普</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">VScode</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">编辑器</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">SASS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">vue</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">科普</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
