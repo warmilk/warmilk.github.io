@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        曲英的博客 | 玉树临风美少年 - 记录技术与生活
+        moment.js的使用 · 曲英的博客 | 玉树临风美少年 - 记录技术与生活
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >走り続けてこそ人生.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">moment.js的使用</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>走り続けてこそ人生.</a>
 </header>
@@ -62,21 +73,37 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            moment.js的使用
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/09/06</span>
+            </div>
         
     </div>
 </div>
@@ -144,45 +171,53 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="日期格式化"><a href="#日期格式化" class="headerlink" title="日期格式化"></a>日期格式化</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>); <span class="comment">// ’2015-11-30 23:10:10‘</span></span><br><span class="line">moment().format(<span class="string">'dddd'</span>); <span class="comment">// 星期一</span></span><br></pre></td></tr></table></figure>
+<h2 id="字符串转日期"><a href="#字符串转日期" class="headerlink" title="字符串转日期"></a>字符串转日期</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment(<span class="string">'2015-11-30'</span>).toDate();</span><br><span class="line">moment(<span class="string">'2015-11-30 10:20:15'</span>).toDate();</span><br></pre></td></tr></table></figure>
+<h2 id="毫秒转日期"><a href="#毫秒转日期" class="headerlink" title="毫秒转日期"></a>毫秒转日期</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment(<span class="number">1448896064621</span>).toDate();</span><br></pre></td></tr></table></figure>
+<h2 id="时间加减"><a href="#时间加减" class="headerlink" title="时间加减"></a>时间加减</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">7</span>,<span class="string">'years'</span>); <span class="comment">// 加7年</span></span><br><span class="line">moment().add(<span class="number">7</span>,<span class="string">'month'</span>);<span class="comment">// 加7个月</span></span><br><span class="line">moment().add(<span class="number">7</span>,<span class="string">'days'</span>); <span class="comment">// 加7天</span></span><br><span class="line">moment().add(<span class="number">7</span>,<span class="string">'hours'</span>); <span class="comment">// 加7小时</span></span><br><span class="line">moment().add(<span class="number">7</span>,<span class="string">'minutes'</span>);<span class="comment">// 加7分钟</span></span><br><span class="line">moment().add(<span class="number">7</span>,<span class="string">'seconds'</span>);<span class="comment">// 加7秒钟</span></span><br><span class="line"></span><br><span class="line">moment().subtract(<span class="number">7</span>,<span class="string">'years'</span>); <span class="comment">// 减7年</span></span><br><span class="line">moment().subtract(<span class="number">7</span>,<span class="string">'month'</span>);<span class="comment">// 减7个月</span></span><br><span class="line">moment().subtract(<span class="number">7</span>,<span class="string">'days'</span>); <span class="comment">// 减7天</span></span><br><span class="line">moment().subtract(<span class="number">7</span>,<span class="string">'hours'</span>); <span class="comment">// 减7小时</span></span><br><span class="line">moment().subtract(<span class="number">7</span>,<span class="string">'minutes'</span>);<span class="comment">// 减7分钟</span></span><br><span class="line">moment().subtract(<span class="number">7</span>,<span class="string">'seconds'</span>);<span class="comment">// 减7秒钟</span></span><br></pre></td></tr></table></figure>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/08/31/碎碎念/" title= 粗心大意·碎碎念 >
+                    <span>Previous Post</span>
+                    <span>粗心大意·碎碎念</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2016/07/23/计算机网络扫盲/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>计算机网络扫盲</span>
-                    </h2>
-                <div class="abstract-content">
-                    计算机网络的源模型是ISO/OSI七层模型，它是在具体的网络协议比如TCP，HTTP之类并未制定前就成型的，是一种架构思想，换个说法即空中楼阁。
-日后随着模型下的每一层对应的协议均涌现了优秀的实现，将这个抽象的理想模型变为了现实，于是它便从军事科研走向了日常生活的大规模应用，成为了网络世界的基础，就是目前大名鼎鼎的TCP/IP四层模型啦~
-在了解这个模型前，要先熟悉以下​几个名词：服务器，IP地址，域名，MAC地址，端口。
-服务器是啥服务器可以想象成一栋大厦，里面被划分成很多个房间（就是买服务器的时候所说的“空间”啦）
-一般直接买服务器的话买的是毛胚房，买空间的话则买的是精装房，服务器提...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = web开发科普>web开发科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 计算机网络>计算机网络</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2016/07/23</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: "moment.js的使用", // 可选。默认为 location.href
+        owner: 'warmilk',
+        repo: 'warmilk.github.io',
+        oauth: {
+            client_id: '5bcd23d32c264253b6dd',
+            client_secret: 'ae02dbfb60add639e232fc9d7efca7e24fe1608f',
+        },
+    })
+    gitment.render('container')
+</script>
+
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -234,6 +269,13 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#日期格式化"><span class="toc-number">1.</span> <span class="toc-text">日期格式化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串转日期"><span class="toc-number">2.</span> <span class="toc-text">字符串转日期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#毫秒转日期"><span class="toc-number">3.</span> <span class="toc-text">毫秒转日期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时间加减"><span class="toc-number">4.</span> <span class="toc-text">时间加减</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
