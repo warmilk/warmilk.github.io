@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        曲英的博客 | 玉树临风美少年 - 记录技术与生活
+        曲英的博客 | 玉树临风美少年 - 记录与分享技术成长
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -162,6 +162,69 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2018/08/22/mint-ui阻止input唤醒输入法/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>mint-ui阻止input唤醒输入法</span>
+                    </h2>
+                <div class="abstract-content">
+                    使用@mousedown事件即可，记得要加.native后缀，为了能成功绑定到真正的dom元素上。
+1&lt;mt-field label="出生日期" placeholder="1996-08-17" v-model="form.birthday" @mousedown.native="showPicker"&gt;&lt;/mt-field&gt;
+123456methods: &#123;	showPicker(e)&#123;		e.preventDefault(); //阻止输入法的唤醒		...	&#125;&#125;
+
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Mint-UI>Mint-UI</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/08/22</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2018/08/14/使用eventBus进行兄弟组件通信/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>使用eventBus进行兄弟组件通信</span>
+                    </h2>
+                <div class="abstract-content">
+                    在不用Vuex的情况下，当需要做同级组件间的数据传递时我们常常用到EventBus，其实际上就是另外定义一个全局Vue实例，在此实例上订阅和触发事件可以在全局有效。
+目前网上的写法大都如此：
+12345678910111213141516171819202122// Register global event busVue.prototype.$bus = new Vue(); new Vue(&#123;  el: '#app',  router: Router,  template: '&lt;App/&gt;'&#125;);// Use in component Amethods...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/08/14</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2018/01/19/vue动态路由实现用户权限控制/" >
                     <h2 class="abstract-title">
                         
@@ -228,67 +291,6 @@
             </div>
         </article>
     
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/20/VScode报错：请安装sass命令行工具/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Windows下如何安装sass命令行</span>
-                    </h2>
-                <div class="abstract-content">
-                    在使用VScode打开.sass后缀文件时，VScode终端输出乱码一串，并报错：无法使用sass相关扩展，请安装sass命令行工具。查阅Sass官网，并无安装命令行cli工具相关介绍，遂文之。
-安装Ruby：因为Sass是一个Ruby gem，所以您需要做的第一件事，就是使用Windows安装程序安装Ruby。与OS X不同，Ruby没有默认安装在Windows上，所以Windows用户需要手动安装它。
-当您通过安装向导安装时，您将在屏幕上看到这个界面:
-
-只需将中间的第二项的环境变量指定为Ruby的安装路径即可（它用于告诉您的命令行指令在哪里找到到Ruby的可执行文件），否则当您试图...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = VScode>VScode</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 编辑器>编辑器</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = SASS>SASS</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/20</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/11/js原型链乱弹/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>js原型链乱弹</span>
-                    </h2>
-                <div class="abstract-content">
-                    对于目前仅有商用项目经验不算多的我来说，任何软件工程方法，编程的设计模式，都是因为我们没有超长的竖着的屏幕（前端组件化），程序员懒（类的继承）···
-前端的组件化在某种意义来说，实现代码的分治远比用作组件复用的意义更重大，因为那些与业务逻辑无关的基础组件早已有了现成的优秀实现（例element-ui）。
-在需要我们动手写有各种复杂业务逻辑和业务数据的项目组件时，组件化能帮助我们实现代码分治的优势就大大凸显了
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/11</span>
-                </div>
-            </div>
-        </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
@@ -318,19 +320,36 @@
     
         
             
-                <a href="//www.zhihu.com/people/da-miao-gong/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
+                <a href="https://weibo.com/EmmanuelDitto/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" class="iconfont-archer weibo" target="_blank" title="weibo"></a>
             
         
     
         
             
-                <a href="//twitter.com/milkcatnolita" class="iconfont-archer twitter" target="_blank" title="twitter"></a>
+                <a href="//www.zhihu.com/people/da-miao-gong/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
             
         
     
 
     </div>
     
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                <span>
+                    <a href= https://naturalwill.github.io/ target="_black">起源</a>
+                </span>
+            
+                <span>
+                    <a href= https://www.jianshu.com/u/2fd79b98973e target="_black">令海</a>
+                </span>
+            
+                <span>
+                    <a href= https://www.zcool.com.cn/work/ZMjAwNTg1NDg=.html target="_black">我们の合照</a>
+                </span>
+            
+        </div>
     
     
         <div class="about-me">
@@ -356,13 +375,13 @@
     
         
             
-                <a href="//www.zhihu.com/people/da-miao-gong/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
+                <a href="https://weibo.com/EmmanuelDitto/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" class="iconfont-archer weibo" target="_blank" title="weibo"></a>
             
         
     
         
             
-                <a href="//twitter.com/milkcatnolita" class="iconfont-archer twitter" target="_blank" title="twitter"></a>
+                <a href="//www.zhihu.com/people/da-miao-gong/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
             
         
     
@@ -603,7 +622,47 @@
     
     
     
-    <div class="total-archive"> Total : 17 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 19 </div>
     
     <div class="post-archive">
     
@@ -612,6 +671,16 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2018/10/08/markdown速记速查/" >Markdown速记速查</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span><a class="archive-post-title" href= "/2018/09/13/选中用户列表内某一列用户，弹出编辑用户信息弹窗/" >选中用户列表内某一列用户，弹出编辑用户信息弹窗</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -732,13 +801,15 @@
     
         <span class="sidebar-tag-name"><a href= "#">CSS</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">VScode</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">编辑器</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">SASS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Markdown</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
