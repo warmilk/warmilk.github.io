@@ -470,6 +470,12 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-archive"> Total : 19 </div>
     
     <div class="post-archive">
@@ -617,11 +623,11 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
     
         <span class="sidebar-tag-name"><a href= "#">JavaScript</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">Markdown</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">Vue</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Mint-UI</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Markdown</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">vue</a></span>
     
@@ -630,6 +636,53 @@ Vue中在子组件往父组件传参，很多都是通过$emit来触发父组件
         <span class="sidebar-tag-name"><a href= "#">web开发科普</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
+class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
