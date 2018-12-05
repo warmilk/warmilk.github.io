@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        曲英的博客 | 玉树临风美少年 - 记录与分享技术成长
+        localStorage和vuex的区别和联系 · 曲英的博客 | 玉树临风美少年 - 记录与分享技术成长
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >走り続けてこそ人生.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">localStorage和vuex的区别和联系</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>走り続けてこそ人生.</a>
 </header>
@@ -62,21 +73,43 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            localStorage和vuex的区别和联系
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Vue>Vue</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/12/05</span>
+            </div>
         
     </div>
 </div>
@@ -144,76 +177,71 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>这是两个完全不同的概念 =。= 之前刚接触vue的时候也是傻傻分不清，看到萌新跟当初的我一样有相同的疑问，那就系统记录下。</p>
+<p>首先 <code>vuex</code> 是给 vue 用的状态管理库（除了能管理数据 state，还能管理读写数据的操作 mutation ），而 <code>localStorage</code> 仅仅是个浏览器提供的api，在状态管理这方面，它只起到将数据持久化存储的作用，至于管理读写数据的操作，不存在的……</p>
+<p>并且，<code>vuex</code> 中的数据是存储在内存中的，页面刷新就会丢失，而 <code>localstorage</code> 则是存储在计算机本地，刷新并不会丢失</p>
+<h2 id="举个栗子深入理解-vuex"><a href="#举个栗子深入理解-vuex" class="headerlink" title="举个栗子深入理解 vuex"></a>举个栗子深入理解 <code>vuex</code></h2><p>如果你的整个项目是一个酒店，这间酒店能用做菜的 <code>原材料</code>（<strong><em>data</em></strong>）和 <code>厨具</code>（<strong><em>function</em></strong>）做出各种美味的 <code>菜肴</code>（<strong><em>经过处理的 data，注入到写好样式的页面中</em></strong>），各个.vue文件.js文件都看作是一个单独的酒店房间，都能堆放各种 <strong><em>data</em></strong> 和 <strong><em>function</em></strong> ，</p>
+<p>那么 <code>vuex</code> 就是这间酒店的中心仓库，存储了整间酒店做所有各式菜肴都要用到的通用 <code>原材料</code>（<strong><em>state</em></strong>）以及 <code>厨具</code>（<strong><em>mutation</em></strong>）</p>
+<h2 id="举个栗子深入理解-localStorage-在-vuex-中的运用"><a href="#举个栗子深入理解-localStorage-在-vuex-中的运用" class="headerlink" title="举个栗子深入理解 localStorage 在 vuex 中的运用"></a>举个栗子深入理解 <code>localStorage</code> 在 <code>vuex</code> 中的运用</h2><p>比如你说的用户信息 <code>userInfo</code> ，在 <code>vuex</code> 中是放在整个单对象树的 <code>state</code> 属性里的，书写管理这个 <code>userInfo</code> 的 <code>mutation</code> 有两种方案：</p>
+<p>方案一：</p>
+<blockquote>
+<p>不使用 <code>localStorage</code> 。页面每次要用到 <code>userInfo</code> 都是直接通过发送请求从api服务器处获取</p>
+</blockquote>
+<p>方案二：</p>
+<blockquote>
+<p>使用 <code>localStorage</code> 。 先声明一个调用 api 拉取用户信息到本地并存入 localstorage 的 <code>getUserInfoFromAPIsaveToLocalStorage()</code> 方法，要用到 <code>userInfo</code> 的时候，则调用从本地 localstorage 读取用户信息的 <code>getUserInfoFronLocalStorage()</code> 方法</p>
+</blockquote>
+<p>在 vuex 里，<code>getUserInfoFromAPIsaveToLocalStorage()</code> 和 <code>getUserInfoFronLocalStorage()</code> 这两个 function 是放在 mutation 属性里的</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/12/06/与老陈二三事/" title= 与老野猫二三事 >
+                    <span>Next Post</span>
+                    <span>与老野猫二三事</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2018/10/08/markdown速记速查/" title= Markdown速记速查 >
+                    <span>Previous Post</span>
+                    <span>Markdown速记速查</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2016/10/24/多核编程的前世今生/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>多核编程的前世今生</span>
-                    </h2>
-                <div class="abstract-content">
-                    （一）70年代问题：人们都还在用汇编，程序无法移植，难以维护。
-解决方法：出现了C，Fortran之类的语言，让计算机不再有依赖于特定机器硬件的方言（汇编），而是通过编译器（可以将这货理解为一个虚拟机吗=。=）的出现，让计算机世界拥有了通用语言。
-（二）80年代问题：无法多人协作编程，多段小程序根本无法拼接成一个大型程序，几百号人一起写大型程序的感觉就是进度条看不到头。
-解决方法：出现了C++,C#,Java之类的东西，还有一些类库什么的。十年前写的程序放在今天的电脑上仍然能跑，而且那段时期，由于是摩尔定律的鼎盛时期（计算机硬件性能会自动随时间而提升）的原因，程序跑起来的性能感觉有明显提...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2016/10/24</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2016/07/23/计算机网络扫盲/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>计算机网络扫盲</span>
-                    </h2>
-                <div class="abstract-content">
-                    计算机网络的源模型是ISO/OSI七层模型，它是在具体的网络协议比如TCP，HTTP之类并未制定前就成型的，是一种架构思想，换个说法即空中楼阁。
-日后随着模型下的每一层对应的协议均涌现了优秀的实现，将这个抽象的理想模型变为了现实，于是它便从军事科研走向了日常生活的大规模应用，成为了网络世界的基础，就是目前大名鼎鼎的TCP/IP四层模型啦~
-在了解这个模型前，要先熟悉以下​几个名词：服务器，IP地址，域名，MAC地址，端口。
-服务器是啥服务器可以想象成一栋大厦，里面被划分成很多个房间（就是买服务器的时候所说的“空间”啦）
-一般直接买服务器的话买的是毛胚房，买空间的话则买的是精装房，服务器提...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = web开发科普>web开发科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 计算机网络>计算机网络</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2016/07/23</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: "localStorage和vuex的区别和联系", // 可选。默认为 location.href
+        owner: 'warmilk',
+        repo: 'warmilk.github.io',
+        oauth: {
+            client_id: '5bcd23d32c264253b6dd',
+            client_secret: 'ae02dbfb60add639e232fc9d7efca7e24fe1608f',
+        },
+    })
+    gitment.render('container')
+</script>
+
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -265,6 +293,13 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#举个栗子深入理解-vuex"><span class="toc-number">1.</span> <span class="toc-text">举个栗子深入理解 vuex</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举个栗子深入理解-localStorage-在-vuex-中的运用"><span class="toc-number">2.</span> <span class="toc-text">举个栗子深入理解 localStorage 在 vuex 中的运用</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

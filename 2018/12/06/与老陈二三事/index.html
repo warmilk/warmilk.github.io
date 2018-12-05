@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        曲英的博客 | 玉树临风美少年 - 记录与分享技术成长
+        与老野猫二三事 · 曲英的博客 | 玉树临风美少年 - 记录与分享技术成长
         
     </title>
     <link rel="icon" href= /assets/favicon.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >走り続けてこそ人生.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">与老野猫二三事</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>走り続けてこそ人生.</a>
 </header>
@@ -62,21 +73,37 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            与老野猫二三事
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/12/06</span>
+            </div>
         
     </div>
 </div>
@@ -144,76 +171,53 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>11月中时本来打算记录下这个觉得自己拯救了银河系才能遇到的对自己这么好的男人，现在看来没必要了。</p>
+<p>想象力能让缺爱的小女孩分泌多少多巴胺催产素，决定离开的时候就会回收多少。</p>
+<p>连续哭到精神恍惚夜晚失眠两三天，不想吃饭，吸了烟。</p>
+<p>结束吧，end。</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/12/05/localStorage和vuex的区别和联系/" title= localStorage和vuex的区别和联系 >
+                    <span>Previous Post</span>
+                    <span>localStorage和vuex的区别和联系</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2016/10/24/多核编程的前世今生/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>多核编程的前世今生</span>
-                    </h2>
-                <div class="abstract-content">
-                    （一）70年代问题：人们都还在用汇编，程序无法移植，难以维护。
-解决方法：出现了C，Fortran之类的语言，让计算机不再有依赖于特定机器硬件的方言（汇编），而是通过编译器（可以将这货理解为一个虚拟机吗=。=）的出现，让计算机世界拥有了通用语言。
-（二）80年代问题：无法多人协作编程，多段小程序根本无法拼接成一个大型程序，几百号人一起写大型程序的感觉就是进度条看不到头。
-解决方法：出现了C++,C#,Java之类的东西，还有一些类库什么的。十年前写的程序放在今天的电脑上仍然能跑，而且那段时期，由于是摩尔定律的鼎盛时期（计算机硬件性能会自动随时间而提升）的原因，程序跑起来的性能感觉有明显提...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2016/10/24</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2016/07/23/计算机网络扫盲/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>计算机网络扫盲</span>
-                    </h2>
-                <div class="abstract-content">
-                    计算机网络的源模型是ISO/OSI七层模型，它是在具体的网络协议比如TCP，HTTP之类并未制定前就成型的，是一种架构思想，换个说法即空中楼阁。
-日后随着模型下的每一层对应的协议均涌现了优秀的实现，将这个抽象的理想模型变为了现实，于是它便从军事科研走向了日常生活的大规模应用，成为了网络世界的基础，就是目前大名鼎鼎的TCP/IP四层模型啦~
-在了解这个模型前，要先熟悉以下​几个名词：服务器，IP地址，域名，MAC地址，端口。
-服务器是啥服务器可以想象成一栋大厦，里面被划分成很多个房间（就是买服务器的时候所说的“空间”啦）
-一般直接买服务器的话买的是毛胚房，买空间的话则买的是精装房，服务器提...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 科普>科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = web开发科普>web开发科普</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 计算机网络>计算机网络</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2016/07/23</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: "与老野猫二三事", // 可选。默认为 location.href
+        owner: 'warmilk',
+        repo: 'warmilk.github.io',
+        oauth: {
+            client_id: '5bcd23d32c264253b6dd',
+            client_secret: 'ae02dbfb60add639e232fc9d7efca7e24fe1608f',
+        },
+    })
+    gitment.render('container')
+</script>
+
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -265,6 +269,13 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
